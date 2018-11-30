@@ -60,10 +60,6 @@ public class SpinnerDialog {
         this.onSpinerItemClick = onSpinerItemClick1;
     }
 
-    public void setCancelable(boolean cancelable) {
-        alertDialog.setCancelable(cancelable);
-    }
-
     public void showSpinerDialog() {
         AlertDialog.Builder adb = new AlertDialog.Builder(context);
         View v = context.getLayoutInflater().inflate(R.layout.dialog_layout, null);
@@ -78,6 +74,7 @@ public class SpinnerDialog {
         adb.setView(v);
         alertDialog = adb.create();
         alertDialog.getWindow().getAttributes().windowAnimations = style;//R.style.DialogAnimations_SmileWindow;
+        alertDialog.setCancelable(true);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
