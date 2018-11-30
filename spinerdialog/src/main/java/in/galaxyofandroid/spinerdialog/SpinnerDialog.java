@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class SpinnerDialog {
     ArrayList<String> items;
     Activity context;
-    String dTitle,closeTitle="Close";
+    String dTitle, closeTitle = "Close";
     OnSpinerItemClick onSpinerItemClick;
     AlertDialog alertDialog;
     int pos;
@@ -34,11 +34,11 @@ public class SpinnerDialog {
         this.dTitle = dialogTitle;
     }
 
-    public SpinnerDialog(Activity activity, ArrayList<String> items, String dialogTitle,String closeTitle) {
+    public SpinnerDialog(Activity activity, ArrayList<String> items, String dialogTitle, String closeTitle) {
         this.items = items;
         this.context = activity;
         this.dTitle = dialogTitle;
-        this.closeTitle=closeTitle;
+        this.closeTitle = closeTitle;
     }
 
     public SpinnerDialog(Activity activity, ArrayList<String> items, String dialogTitle, int style) {
@@ -48,16 +48,20 @@ public class SpinnerDialog {
         this.style = style;
     }
 
-    public SpinnerDialog(Activity activity, ArrayList<String> items, String dialogTitle, int style,String closeTitle) {
+    public SpinnerDialog(Activity activity, ArrayList<String> items, String dialogTitle, int style, String closeTitle) {
         this.items = items;
         this.context = activity;
         this.dTitle = dialogTitle;
         this.style = style;
-        this.closeTitle=closeTitle;
+        this.closeTitle = closeTitle;
     }
 
     public void bindOnSpinerListener(OnSpinerItemClick onSpinerItemClick1) {
         this.onSpinerItemClick = onSpinerItemClick1;
+    }
+
+    public void setCancelable(boolean cancelable) {
+        alertDialog.setCancelable(cancelable);
     }
 
     public void showSpinerDialog() {
@@ -74,7 +78,6 @@ public class SpinnerDialog {
         adb.setView(v);
         alertDialog = adb.create();
         alertDialog.getWindow().getAttributes().windowAnimations = style;//R.style.DialogAnimations_SmileWindow;
-        alertDialog.setCancelable(true);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
