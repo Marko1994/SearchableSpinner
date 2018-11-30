@@ -74,7 +74,7 @@ public class SpinnerDialog {
         adb.setView(v);
         alertDialog = adb.create();
         alertDialog.getWindow().getAttributes().windowAnimations = style;//R.style.DialogAnimations_SmileWindow;
-        alertDialog.setCancelable(false);
+        alertDialog.setCancelable(true);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
